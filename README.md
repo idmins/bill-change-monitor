@@ -1,14 +1,95 @@
-# bill-change-monitor
-处理人变更监控脚本V2.1
-// ==UserScript==
-// @name         报账单号处理人变更监控
-// @namespace    http://tampermonkey.net/
-// @version      2.1
-// @description  监控报账单号处理人变更，醒目显示变化
-// @author       You
-// @match        https://fssc.gdghg.com/ecs/userBills*
-// @grant        GM_setValue
-// @grant        GM_getValue
-// @grant        GM_deleteValue
-// @grant        GM_notification
-// @grant        GM_addStyle
+# 报账单号处理人变更监控 🔔
+
+> 油猴脚本 - 自动监控报账系统中单号处理人的变更，高亮提醒，留存记录
+
+![版本](https://img.shields.io/badge/version-2.1-blue)
+![平台](https://img.shields.io/badge/platform-Tampermonkey-green)
+![许可](https://img.shields.io/badge/license-MIT-orange)
+
+---
+
+## 📌 功能特性
+
+- 🔍 **自动监控** - 每次打开页面自动检测处理人变更
+- 🟡 **高亮提醒** - 变更的行自动标黄，一目了然
+- 💾 **持久留存** - 变更记录保存在本地，关闭浏览器也不丢失
+- ❌ **手动取消** - 鼠标悬停高亮行，左上角点击 ✕ 即可取消留存
+- 🚫 **不打扰** - 新增单号和单号删除不会触发提醒，只监控处理人变化
+
+---
+
+## 🖥️ 适用页面
+你的财务共享系统地址/ecs/userBills
+
+---
+
+## 📦 安装方法
+
+### 方法一：从 GitHub 安装（推荐）
+
+1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 浏览器扩展
+2. 点击下方链接安装：
+
+### 方法二：手动安装
+
+1. 打开 Tampermonkey 管理面板
+2. 点击 **添加新脚本**
+3. 粘贴完整代码
+4. 按 `Ctrl+S` 保存
+
+---
+
+## 🎯 使用说明
+
+| 操作 | 效果 |
+|------|------|
+| 打开页面 | 自动检测处理人变更 |
+| 变更时 | 弹出提醒窗口，列出所有变更 |
+| 点击"确认并留存" | 变更行标黄高亮 |
+| 点击"忽略" | 不再提醒本次变更 |
+| 悬停高亮行 | 左上角显示 ✕ 按钮 |
+| 点击 ✕ | 取消该单号的留存，高亮消失 |
+
+---
+
+## ⚙️ 数据存储
+
+脚本使用 `GM_setValue` 在本地存储以下数据：
+
+| 存储键 | 说明 |
+|--------|------|
+| `bill_processor_history` | 历史处理人记录 |
+| `bill_retention_records` | 已留存的变更记录 |
+
+> 数据保存在浏览器本地，关闭浏览器或重启电脑不会丢失
+
+---
+
+## 🛠️ 技术栈
+
+- JavaScript
+- Tampermonkey API (`GM_setValue`, `GM_getValue`, `GM_notification`, `GM_addStyle`)
+- DOM 操作
+
+---
+
+## 📝 版本历史
+
+| 版本 | 更新内容 |
+|------|----------|
+| v2.1 | 修复取消留存时高亮不消失的问题 |
+| v2.0 | 精简逻辑，只监控处理人变更 |
+| v1.9 | 移除新增/删除监控，减少误报 |
+| v1.0 | 初始版本 |
+
+---
+
+## 📄 许可证
+
+[MIT License](LICENSE)
+
+---
+
+## 💬 反馈
+
+如有问题或建议，欢迎提交 Issue。
