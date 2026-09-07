@@ -4,7 +4,7 @@
 // @version      2.1
 // @description  监控报账单号处理人变更，醒目显示变化
 // @author       You
-// @match        https://fssc.gdghg.com/ecs/userBills*
+// @match        https://你的财务共享系统地址/ecs/userBills*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_deleteValue
